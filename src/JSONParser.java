@@ -6,7 +6,7 @@ public class JSONParser {
     // alex
 =======
     private void test(){
-
+        int k = 0;
     }
 >>>>>>> master
 }
