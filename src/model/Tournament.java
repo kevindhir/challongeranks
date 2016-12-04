@@ -35,6 +35,7 @@ public class Tournament {
     public void addTournamentEntered(){
         for (Participant p: participants) {
             p.addTournamentEntered(this);
+            p.incrementTournamentsEntered();
         }
     }
 

@@ -36,7 +36,7 @@ public class Participant {
         }
     }
 
-    public int getAvgPlacement(List<Integer> placements){
+    public int getAvgPlacement(){
         int placementSum = 0;
         int totalEntered = 0;
         for (Integer placement: placements) {

@@ -2,6 +2,7 @@ package model;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import singleton.challongeranks;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -35,7 +36,7 @@ public class ParticipantParser {
     }
 
     //May need to be STATIC
-    public void parseParticipants(String jsonResponse) throws org.json.JSONException {
+    public void parseParticipants(String jsonResponse) throws org.json.JSONException, IOException {
         JSONArray response = new JSONArray(jsonResponse);
         for (int index = 0; index < response.length(); index++) {
             JSONObject participant = response.getJSONObject(index).getJSONObject("participant");
@@ -44,11 +45,25 @@ public class ParticipantParser {
         }
     }
 
-    public Participant parseParticipant(JSONObject participant) throws org.json.JSONException {
+    public Participant parseParticipant(JSONObject participant) throws org.json.JSONException, IOException {
         int id = participant.getInt("id");
         String name = participant.getString("name");
         Participant parsedParticipant = new Participant(name, id);
-        parsedParticipant.addPlacement(participant.getInt("final_rank"));
+
+        HashSet<Participant> masterSet = challongeranks.getInstance().returnParticipants();
+
+        if (!(masterSet.contains(parsedParticipant))){
+            challongeranks.getInstance().addParticipant(parsedParticipant);
+            parsedParticipant.addPlacement(participant.getInt("final_rank"));
+        } else {
+            for (Participant p: masterSet) {
+                if (p.equals(parsedParticipant)){
+                    p.addPlacement(participant.getInt("final_rank"));
+                }
+            }
+
+        }
+
         return parsedParticipant;
     }
 

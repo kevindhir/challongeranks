@@ -16,6 +16,8 @@ public class testmainclass {
             test.setSelected(t);
         }
         test.getParticipantsSelected();
+        test.generateAverages();
         test.returnParticipants();
     }
+
 }
