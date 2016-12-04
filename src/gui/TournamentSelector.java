@@ -1,9 +1,8 @@
 package gui;
 
-import model.JSONParser;
+import model.TournamentParser;
 import model.Tournament;
 import org.json.JSONException;
-import singleton.challongeranks;
 
 
 import javax.swing.*;
@@ -16,11 +15,11 @@ import java.util.List;
  */
 public class TournamentSelector {
 
-    private JSONParser jsonParser = JSONParser.getInstance();
+    private TournamentParser tournamentParser = TournamentParser.getInstance();
 
     public TournamentSelector() throws IOException, JSONException {
         List<JCheckBox> checkBoxes = new ArrayList<>();
-        for (Tournament t: jsonParser.tournaments) {
+        for (Tournament t: tournamentParser.tournaments) {
             JCheckBox checkBox = new JCheckBox(t.getName());
             checkBoxes.add(checkBox);
         }

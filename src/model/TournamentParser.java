@@ -1,9 +1,7 @@
 package model;
 
-import com.oracle.javafx.jmx.json.JSONException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import singleton.challongeranks;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -11,22 +9,21 @@ import java.net.URL;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 
 /**
  * Created by kevindhir on 2016-12-03.
  */
-public class JSONParser {
+public class TournamentParser {
     public String username = "challongerankings";
     public String apikey = "KOQ2Dzakf5oIOwgBVN0N5dhivU3TB6UvI3Vvp24U";
     public Collection<Tournament> tournaments = new HashSet<>();
-    private static JSONParser instance;
+    private static TournamentParser instance;
 
 
-    public static JSONParser getInstance() throws IOException, org.json.JSONException {
+    public static TournamentParser getInstance() throws IOException, org.json.JSONException {
         if (instance == null) {
-            instance = new JSONParser();
+            instance = new TournamentParser();
         }
         return instance;
     }
@@ -40,9 +37,8 @@ public class JSONParser {
     //May need to be STATIC
     public void parseTournaments(String jsonResponse) throws org.json.JSONException {
         JSONArray response = new JSONArray(jsonResponse);
-
         for (int index = 0; index < response.length(); index++) {
-            JSONObject tournament = response.getJSONObject(index);
+            JSONObject tournament = response.getJSONObject(index).getJSONObject("tournament");
             Tournament parsedTournament = parseTournament(tournament);
             tournaments.add(parsedTournament);
         }
