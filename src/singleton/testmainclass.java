@@ -1,5 +1,6 @@
 package singleton;
 
+import model.Tournament;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -11,5 +12,10 @@ public class testmainclass {
     
     public static void main(String[] args) throws IOException, JSONException {
         challongeranks test = new challongeranks();
+        for (Tournament t: test.getTournaments()) {
+            test.setSelected(t);
+        }
+        test.getParticipantsSelected();
+        test.returnParticipants();
     }
 }
