@@ -14,7 +14,7 @@ public class Participant {
     private int participantID;
     private List<Integer> placements;
     private int numTournamentsEntered;
-    private int avgPlacement;
+    private double avgPlacement;
 
     public Participant(String username, int participantID){
         this.username = username;
@@ -36,14 +36,14 @@ public class Participant {
         }
     }
 
-    public int getAvgPlacement(){
-        int placementSum = 0;
-        int totalEntered = 0;
+    public void getAvgPlacement(){
+        double placementSum = 0;
+        double totalEntered = 0;
         for (Integer placement: placements) {
             totalEntered ++;
             placementSum += placement;
         }
-        return placementSum/totalEntered;
+        avgPlacement = placementSum/totalEntered;
     }
 
 
