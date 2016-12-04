@@ -1,11 +1,8 @@
 <component name="libraryTable">
-  <library name="java-json">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/java-json.jar!/" />
-    </CLASSES>
+  <library name="examples">
+    <CLASSES />
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/Downloads/java-json.jar!/" />
       <root url="file://$USER_HOME$/Downloads/httpcomponents-client-4.5.2/fluent-hc/src/examples" />
       <root url="file://$USER_HOME$/Downloads/httpcomponents-client-4.5.2/fluent-hc/src/main/java" />
       <root url="file://$USER_HOME$/Downloads/httpcomponents-client-4.5.2/fluent-hc/src/test/java" />
