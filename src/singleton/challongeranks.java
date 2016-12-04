@@ -1,8 +1,10 @@
 package singleton;
 
+import gui.ChooseTournaments;
 import model.*;
 import org.json.JSONException;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
@@ -88,5 +90,9 @@ public class challongeranks {
 
     public HashSet<Participant> returnParticipants(){
         return participants;
+    }
+
+    public int getNumOfTournaments() {
+        return numOfTournaments;
     }
 }

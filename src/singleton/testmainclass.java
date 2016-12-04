@@ -1,8 +1,11 @@
 package singleton;
 
+import gui.ChooseTournaments;
+import gui.JListDisplay;
 import model.Tournament;
 import org.json.JSONException;
 
+import javax.swing.*;
 import java.io.IOException;
 
 /**
@@ -18,6 +21,15 @@ public class testmainclass {
         test.getParticipantsSelected();
         test.generateAverages();
         test.returnParticipants();
+
+        JFrame jFrame = new JFrame("Display");
+        ChooseTournaments chooseTournaments = new ChooseTournaments();
+        jFrame.setContentPane(new JListDisplay());
+        jFrame.add(chooseTournaments);
+        jFrame.setSize(300, 500);
+        jFrame.setVisible(true);
+
+
     }
 
 }
